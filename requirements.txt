@@ -1,0 +1,9 @@
+numpy
+scipy
+pandas
+pyarrow
+plyfile
+matplotlib
+tqdm
+pyyaml
+# pycolmap is optional: no wheel for Python 3.15; src/colmap_io.py reads the binaries directly

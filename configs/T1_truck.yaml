@@ -1,0 +1,38 @@
+# T1 feature extraction — truck (Tanks & Temples)
+# Every threshold is fixed here before any outcome is inspected (AGENTS.md §1.2).
+# Values inherited from the starting script extract_features_cpu.py are marked.
+
+scene: truck
+ply: data/models/truck/point_cloud/iteration_30000/point_cloud.ply
+colmap: data/tandt/truck/sparse/0
+out: out/features/truck.parquet
+
+max_views: 40          # T1 checkpoint pass; 0 = all views
+
+knn_k: 8               # neighbours for knn_mean / knn_max / isolation (inherited)
+
+# unsupported = dist_to_reference > mult * median nearest-neighbour spacing
+# of the COLMAP sparse points. 20 is inherited from the starting script,
+# not chosen by looking at any result.
+unsupported_spacing_mult: 20.0
+
+projection:
+  near_plane: 0.2            # rasteriser culls p_view.z <= 0.2
+  lowpass_px2: 0.3           # added to 2D covariance diagonal, as in rasteriser
+  footprint_sigma: 3.0       # rasteriser radius = 3 sqrt(lambda_max)
+  jacobian_fov_clamp: 1.3    # rasteriser clamps x/z to 1.3 tan(fov/2)
+  # cfg_args of the published model says resolution=1: trained at full
+  # 1957x1091 (confirmed by cameras.json). Was 1600 (3DGS -r -1 default)
+  # before cfg_args was read; changed for fidelity, not for any result.
+  train_max_width: 0         # 0 = no downsampling
+
+# cfg_args says eval=True: 3DGS held out every 8th image (sorted by name,
+# index % 8 == 0) as test. Only the 219 training views constrained the model,
+# so only they count as evidence. 0 = use every view.
+eval_holdout: 8
+
+# used by make_plots.py / T5; inherited from the starting script, fixed before T5 runs
+needle:
+  top_pct: 2.0               # top 2% by anisotropy
+  band_lo_pct: 35            # ambiguous band = 35th..65th percentile of
+  band_hi_pct: 65            #   dist_to_reference within the top-2% subset
