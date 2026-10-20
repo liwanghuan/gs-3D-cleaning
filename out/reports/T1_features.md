@@ -1,5 +1,5 @@
 # T1 Feature extraction — truck
-Run: 2026-10-20 · config: `configs/T1_truck.yaml` · commit: none (the directory is not a git repository yet)
+Run: 2026-10-20 · config: `configs/T1_truck.yaml` · commit: 82f8bfc (code that produced these numbers)
 
 ## What I did
 I ported `extract_features_cpu.py` to `src/extract_features.py` and ran it on the published Inria 3DGS truck model (iteration 30000) with its COLMAP `sparse/0`. It writes one parquet row per Gaussian, with 22 columns. Opacity goes through a sigmoid, scales through exp, and quaternions are normalised. Each Gaussian is projected with the EWA Jacobian, plus the 0.3 px² low-pass and the 1.3·tan(fov/2) Jacobian clamp from the reference rasteriser. Accumulation runs one view at a time into `[N]` buffers. The run used 40 views, taken at a fixed stride from the 219 **training** views.
