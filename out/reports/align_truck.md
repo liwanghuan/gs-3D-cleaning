@@ -1,5 +1,5 @@
 # Alignment to laser-scan ground truth — truck
-Run: 2026-11-03 · config: `configs/align_truck.yaml` · commit: uncommitted, working tree on top of be9ca6e
+Run: 2026-11-03 · config: `configs/align_truck.yaml` · commit: 9058c78 (code that produced these numbers)
 
 ## What I did
 I estimated a similarity transform from the Inria COLMAP frame, which the 3DGS model lives in, to the Tanks & Temples laser-scan frame. First I fitted a similarity (Umeyama) between the 251 Inria camera centres and the 251 camera centres in T&T's own `Truck_COLMAP_SfM.log`, pairing cameras by image order (`000001.jpg` ↔ log entry 0). I then composed that fit with T&T's published `Truck_trans.txt`, which maps their COLMAP frame to the scan.
