@@ -1,0 +1,28 @@
+Inria images: 251   T&T log poses: 251
+first/last Inria names: 000001.jpg / 000251.jpg
+
+[1] camera-centre similarity (errors in laser-scan metres)
+  N cameras = 251; scale Inria->scan = 1.280941
+  centre error: RMS 0.00369  median 0.00288  max 0.01622  (trajectory diagonal 15.759)
+  orientation error (deg): median 0.0863  max 0.3382
+
+loading laser scan data/tnt/truck/Truck.ply ...
+  scan points: 8,071,886 total, 7,143,563 inside official crop
+
+[2] Inria sparse points -> scan (inside crop: 75,481 of 136,029)
+  NN distance (m): p50 0.0056  p90 0.0250  p99 0.2204
+  within  1 x tau (0.005 m):  45.90%
+  within  2 x tau (0.010 m):  70.14%
+  within  5 x tau (0.025 m):  89.99%
+  within 10 x tau (0.050 m):  94.83%
+
+[2b] diagnostic rigid ICP (max corr 0.050 m, 49 iters) — NOT applied
+  rotation 0.0600 deg, shift at crop centre 0.0102 m
+  RMS over correspondences: 0.0114 -> 0.0104 m
+  NN distance after ICP (m): p50 0.0041  p90 0.0236  p99 0.2204
+
+wrote out/alignment/truck_inria_to_gt.txt
+[[ 0.575178 -0.153075  1.134261 -2.417082]
+ [-1.14226  -0.156919  0.558057  1.599337]
+ [ 0.072261 -1.262044 -0.206964 -7.155842]
+ [ 0.        0.        0.        1.      ]]

@@ -1,0 +1,25 @@
+# Alignment of the Inria 3DGS / COLMAP frame to the Tanks & Temples laser-scan
+# frame for truck. Fixed before any alignment result was computed.
+
+scene: truck
+colmap: data/tandt/truck/sparse/0                 # Inria COLMAP (frame of the 3DGS model)
+tnt_log: data/tnt/truck/Truck_COLMAP_SfM.log      # T&T camera-to-world poses, T&T COLMAP frame
+tnt_trans: data/tnt/truck/Truck_trans.txt         # T&T COLMAP frame -> laser-scan frame
+tnt_crop: data/tnt/truck/Truck.json               # official evaluation crop, laser-scan frame
+tnt_gt: data/tnt/truck/Truck.ply                  # laser scan
+out_matrix: out/alignment/truck_inria_to_gt.txt
+
+# Correspondence hypothesis: Inria image k (sorted by name, 000001.jpg ...)
+# is T&T log entry k-1. Not verified a priori — the camera-centre residual
+# is the test. If the residual is large, the hypothesis is wrong: stop.
+correspondence: name_order
+
+# Official T&T evaluation threshold for Truck (metres, laser-scan frame).
+# Used only as a unit for reporting distances, not tuned.
+eval_tau: 0.005
+
+# Diagnostic ICP of the transformed COLMAP sparse points to the scan.
+# Reported, NOT applied to the transform used downstream.
+icp:
+  max_corr_tau_mult: 10      # correspondences within 10 x eval_tau
+  max_iter: 50
