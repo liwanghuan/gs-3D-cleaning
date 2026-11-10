@@ -1,0 +1,19 @@
+# Step 1: do features still separate the label once camera distance is held
+# roughly fixed? Diagnosis only. Fixed before running.
+
+features_config: configs/T1_truck.yaml   # same 40 views, same parquet
+
+# Depth = mean camera-space depth over the views that see the Gaussian.
+# Strata = equal-count quantile bins of that depth (scene statistic, not chosen).
+# Gaussians seen by no view have no depth and are excluded (count reported).
+n_strata: 10
+
+# A stratum's AUC is reported only if both label classes have this many members.
+min_per_class: 1000
+
+# Same features and directions as T3 (inherited from make_plots.py), never flipped.
+features:
+  contrib_ratio: high
+  view_frac: low
+  isolation: high
+  opacity: low

@@ -1,0 +1,16 @@
+# Diagnostic: why does contrib_ratio score AUC < 0.5 against `unsupported` (T3)?
+# Diagnosis only — no feature, label or threshold is changed. Fixed before running.
+
+features_config: configs/T1_truck.yaml   # same 40 views, same parquet
+
+# Stratified AUC: compare contrib_ratio only among Gaussians with the same
+# view_count. A stratum is used only if both label classes have at least this
+# many members; the summary is the N-weighted mean over used strata.
+min_per_class: 1000
+
+# Direction tested, as in T3 (inherited from make_plots.py): high = artefact.
+direction: high
+
+# Distance-only proxy: dist_ratio = max_v(1/z_v^2) / mean_v(1/z_v^2) over the
+# views that see the Gaussian (z = camera-space depth). This is what
+# contrib_ratio would be for an isotropic Gaussian with no low-pass and no cap.

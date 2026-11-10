@@ -1,0 +1,43 @@
+N = 2,541,226; views = 40; unsupported = 1,078,846
+
+[A] opacity cancels out of contrib_ratio
+  ratio recomputed from area only vs T1 column (N seen = 2,530,829): max relative diff 1.534e-07, median 1.655e-08
+
+[B] contrib_ratio <= view_count (max of n values <= n x their mean)
+  Gaussians with contrib_ratio > view_count: 0 of 2,541,226
+  Gaussians seen by exactly 1 view (ratio forced to 1): 97,414
+  unsupported N = 1,078,846: median view_count 6, median contrib_ratio 1.155
+  supported   N = 1,462,380: median view_count 14, median contrib_ratio 1.546
+  Spearman(contrib_ratio, view_count) = 0.7965
+
+[C] AUC within view_count strata (min 1000 per class, v >= 2)
+  pooled AUC (all N) = 0.2194
+  strata used: 18 covering 1,834,889 Gaussians (72.2%)
+  N-weighted mean within-stratum AUC = 0.5135; strata with AUC < 0.5: 9 of 18
+  within-stratum AUC range: 0.4299 .. 0.7488
+ view_count  n_pos  n_neg    auc
+          2  78584  11078 0.4462
+          3 148874  52698 0.6402
+          4  93931  35953 0.4952
+          5  84931  58022 0.5517
+          6  77964  71472 0.5222
+          7  91892  79232 0.4928
+          8  65914  61288 0.4783
+          9  60843  42753 0.4813
+         10  75659  57832 0.4299
+         11  58918  73265 0.4676
+         12  54070  82466 0.5087
+         13  34194  85113 0.4799
+         14  21937  40126 0.4993
+         15   9865  27762 0.5455
+         16   5425  31322 0.6070
+         17   2780  18194 0.5474
+         18   2466  20569 0.5433
+         19   1212  16285 0.7488
+
+[D] distance-only proxy dist_ratio = max(1/z^2) / mean(1/z^2) over seeing views
+  Spearman(contrib_ratio, dist_ratio), N seen = 2,530,829: 0.8486
+  AUC(dist_ratio, high = artefact)              = 0.1976
+  AUC(contrib_ratio / dist_ratio, high = artefact) = 0.5411
+  unsupported N = 1,068,450: median mean-depth 22.284 units, median dist_ratio 1.264
+  supported   N = 1,462,379: median mean-depth 9.810 units, median dist_ratio 1.565

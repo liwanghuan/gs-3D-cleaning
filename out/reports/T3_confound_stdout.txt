@@ -1,0 +1,17 @@
+init points N = 136,029; median init spacing = 0.01129; near/far radius = 0.01129
+max |dist_to_init - dist_to_reference| = 0.000e+00  (init cloud == reference cloud, T2 check 5b)
+
+[1] groups (N = 2,541,226)
+                 N  share_pct  unsupported  unsupported_pct  dist_p5  dist_p25  dist_p50  dist_p75  dist_p95
+group                                                                                                       
+near-init   260857      10.27            0                0 0.001835  0.004362   0.00665   0.00886   0.01078
+far-init   2280369      89.73      1078846            47.31  0.01675   0.07605    0.2069    0.4847     1.599
+all        2541226        100      1078846            42.45 0.006537   0.04222     0.171    0.4339      1.51
+
+[2] AUC of features against `unsupported` (tie-aware rank AUC)
+              artefact_if  auc_all  auc_far   delta  n_pos_all  n_neg_all  n_pos_far  n_neg_far
+feature                                                                                        
+contrib_ratio        high   0.2194   0.2617  0.0423    1078846    1462380    1078846    1201523
+view_frac             low   0.8311   0.7959 -0.0352    1078846    1462380    1078846    1201523
+isolation            high   0.7260   0.6900 -0.0360    1078846    1462380    1078846    1201523
+opacity               low   0.5314   0.5224 -0.0090    1078846    1462380    1078846    1201523

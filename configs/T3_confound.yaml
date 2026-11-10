@@ -1,0 +1,19 @@
+# T3 initialisation confound — truck. Fixed before running.
+
+features_config: configs/T1_truck.yaml     # parquet (40 views) and scene paths
+init_ply: data/models/truck/input.ply      # the model's own init cloud (== points3D, T2 check 5b)
+
+# AGENTS.md T3: "within one median-reference-spacing of an original init point".
+near_init_spacing_mult: 1.0
+
+# Features scored against `unsupported`, with the direction that counts as
+# "artefact". Inherited unchanged from the starting make_plots.py; an AUC below
+# 0.5 is reported as is, never flipped after looking.
+features:
+  contrib_ratio: high
+  view_frac: low
+  isolation: high
+  opacity: low
+
+# dist_to_reference percentiles reported per group
+dist_pct: [5, 25, 50, 75, 95]
