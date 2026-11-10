@@ -1,5 +1,5 @@
 # T2 Sanity checks — truck
-Run: 2026-11-10 · config: `configs/T2_checks.yaml` (scene settings from `configs/T1_truck.yaml`) · commit: uncommitted, working tree on top of 04aa2ce
+Run: 2026-11-10 · config: `configs/T2_checks.yaml` (scene settings from `configs/T1_truck.yaml`) · commit: d5c84b5 (code that produced these numbers)
 
 ## What I did
 `src/checks.py` runs the five checks from AGENTS.md T2 on the real truck model and its COLMAP data. I added check 5b because bounding-box overlap is weak evidence of a shared frame. All tolerances were fixed in the config before each check ran. Check 4 runs the full extraction twice from scratch and compares file hashes, which also confirms that this task's one refactor (`select_views()`, moved out of `main()`) changed nothing.
