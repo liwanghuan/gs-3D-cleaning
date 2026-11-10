@@ -1,0 +1,25 @@
+# T2 sanity checks — truck. Tolerances fixed before running any check.
+
+features_config: configs/T1_truck.yaml     # scene paths, view set, projection constants
+rerun_dir: out/features/T2_rerun           # gitignored; two fresh extractions land here
+t1_parquet_sha256: 1d1d4954ed5abcc8560049e6455b141e68b1f548032926c38797c76b203e5a01  # recorded at T1
+
+# Check 1: max |R R^T - I| over every Gaussian's rotation. Quaternions are
+# float32, so ~1e-7 per entry is the floor; 1e-5 leaves room for accumulation.
+orthonormal_tol: 1.0e-5
+
+# Check 2: max |Sigma - s^2 I| / s^2 for isotropic scales under every real rotation.
+isotropic_rel_tol: 1.0e-5
+
+# Check 3: synthetic Gaussians placed this far behind each camera's centre,
+# along -forward, in units of the near plane (so always behind it).
+behind_offset_near_mult: 5.0
+
+# Check 5: robust box = these percentiles of each point set per axis,
+# reported next to the raw min/max box (outliers inflate the raw one).
+bbox_robust_pct: [1, 99]
+
+# Check 5b (added beyond the spec, before running it): the training run's own
+# initial point cloud should coincide with COLMAP points3D if both share a frame.
+init_ply: data/models/truck/input.ply
+init_match_tol: 1.0e-4     # float32 rounding at coordinates up to ~175 units is ~1e-5

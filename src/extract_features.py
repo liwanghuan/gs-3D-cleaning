@@ -283,6 +283,14 @@ def load_colmap(path, train_max_width, eval_holdout):
     return cams, pts.astype(np.float32)
 
 
+def select_views(cams, max_views):
+    """Fixed-stride subsample, deterministic because cams are name-sorted."""
+    if max_views and len(cams) > max_views:
+        step = len(cams) // max_views
+        cams = cams[::step][:max_views]
+    return cams
+
+
 # --------------------------------------------------------------------------
 def range_report(df):
     """Report out-of-range values. Never clip (AGENTS.md T1 checkpoint)."""
@@ -334,9 +342,7 @@ def main():
     cams, ref_pts = load_colmap(cfg["colmap"], cfg["projection"]["train_max_width"],
                                 cfg["eval_holdout"])
     n_total = len(cams)
-    if max_views and len(cams) > max_views:
-        step = len(cams) // max_views
-        cams = cams[::step][:max_views]
+    cams = select_views(cams, max_views)
     print(f"{len(cams)} of {n_total} training views "
           f"({cams[0]['width']}x{cams[0]['height']} px), "
           f"{len(ref_pts):,} reference points")

@@ -1,0 +1,47 @@
+2,541,226 Gaussians, 40 views, 136,029 reference points
+
+[1] quaternion -> rotation orthonormality
+  N = 2,541,226; max |R R^T - I| = 1.159e-06; median = 6.133e-08
+  det(R): min 0.9999990  max 1.0000011
+  PASS  max deviation 1.159e-06 vs tol 1e-05; det in [0.999999, 1.000001]
+
+[2] isotropic scale -> s^2 I under every real rotation
+  N = 2,541,226; max |Sigma - s^2 I| / s^2 = 1.107e-06; median = 9.580e-08
+  PASS  max relative deviation 1.107e-06 vs tol 1e-05
+
+[4] bitwise-identical re-run
+  1d1d4954ed5abcc8560049e6455b141e68b1f548032926c38797c76b203e5a01  out/features/T2_rerun/run1.parquet
+  1d1d4954ed5abcc8560049e6455b141e68b1f548032926c38797c76b203e5a01  out/features/T2_rerun/run2.parquet
+  1d1d4954ed5abcc8560049e6455b141e68b1f548032926c38797c76b203e5a01  (T1 run, recorded)
+  PASS  two fresh runs identical; match the T1 hash
+
+[3] view_count == 0 for Gaussians behind every camera
+  real: 0 of 2,541,226 Gaussians are behind all 40 sampled views
+  PASS  no real Gaussian is behind every sampled view (none exist), so nothing to test on real data
+  PASS  40 synthetic Gaussians, each 5 x near plane behind one camera; 0 counted as seen
+
+[5] reference points vs Gaussians: same coordinate frame?
+  raw min/max:
+    Gaussians  lo [-82.916 -27.227 -89.384]  hi [43.636  7.628 45.751]
+    reference  lo [-173.35   -27.513 -174.728]  hi [152.313  41.005  81.846]
+    intersection = 10.41% of reference box, 100.00% of Gaussian box
+  p1-p99:
+    Gaussians  lo [-39.682 -13.049 -73.906]  hi [27.409  3.111 32.004]
+    reference  lo [-27.519  -9.675 -28.913]  hi [25.815  3.555 25.75 ]
+    intersection = 96.64% of reference box, 32.46% of Gaussian box
+  median centre: Gaussians [-0.269 -1.728  0.968]  reference [-0.139  0.503  0.143]
+  PASS  robust boxes overlap: 96.64% of reference box, 32.46% of Gaussian box
+
+[5b] model's initial point cloud vs COLMAP points3D
+  init points N = 136,029; reference points N = 136,029
+  NN distance init -> reference: max 0.000e+00  median 0.000e+00
+  PASS  136,029 init vs 136,029 reference points; max NN distance 0.000e+00 vs tol 1e-04
+
+summary:
+  PASS  1 orthonormal
+  PASS  2 isotropic
+  PASS  4 rerun identical
+  PASS  3a real behind-all
+  PASS  3b synthetic behind
+  PASS  5 same frame
+  PASS  5b init cloud
