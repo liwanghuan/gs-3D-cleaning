@@ -1,5 +1,5 @@
 # T3 Initialisation confound — truck
-Run: 2026-11-10 · config: `configs/T3_confound.yaml` (features from `configs/T1_truck.yaml`, 40 views) · commit: uncommitted, working tree on top of 546c50c
+Run: 2026-11-10 · config: `configs/T3_confound.yaml` (features from `configs/T1_truck.yaml`, 40 views) · commit: 21d2640 (code that produced these numbers)
 
 **In one sentence:** restricted to the 89.73 % of Gaussians far from initialisation, the label still separates on `view_frac` (AUC 0.796) and `isolation` (0.690), losing only about 0.035 AUC to the confound. But `contrib_ratio`, the feature the project rests on, separates in the **opposite** direction to the hypothesis (AUC 0.262), and `opacity` carries almost no signal (0.522).
 

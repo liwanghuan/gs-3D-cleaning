@@ -1,5 +1,5 @@
 # Diagnostic: why contrib_ratio runs backwards — truck
-Run: 2026-11-10 · config: `configs/diag_contrib_ratio.yaml` (features from `configs/T1_truck.yaml`, 40 views) · commit: uncommitted, working tree on top of 546c50c
+Run: 2026-11-10 · config: `configs/diag_contrib_ratio.yaml` (features from `configs/T1_truck.yaml`, 40 views) · commit: 21d2640 (code that produced these numbers)
 
 **In one sentence:** the AUC of 0.22 is not evidence about floaters. Opacity cancels out of `contrib_ratio`, which leaves pure camera geometry. The ratio is capped by `view_count`, and its rank correlation with a distance-only proxy is 0.85. Compared only among Gaussians seen by the same number of views, its AUC against `unsupported` is 0.51, which is no signal in either direction.
 

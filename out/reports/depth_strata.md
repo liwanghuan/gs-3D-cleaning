@@ -1,5 +1,5 @@
 # Depth-stratified AUC — truck
-Run: 2026-11-10 · config: `configs/depth_strata.yaml` (features from `configs/T1_truck.yaml`, 40 views) · commit: uncommitted, working tree on top of 546c50c
+Run: 2026-11-10 · config: `configs/depth_strata.yaml` (features from `configs/T1_truck.yaml`, 40 views) · commit: 21d2640 (code that produced these numbers)
 
 **In one sentence:** the `unsupported` label is strongly driven by distance from the cameras (0.13 % in the nearest tenth of Gaussians, 93.9 % in the farthest). With depth held roughly fixed, `view_frac` (0.690) and `isolation` (0.620) still separate in every stratum but lose 0.10–0.14 AUC. `contrib_ratio` stays inverted (0.397, below 0.5 in 7 of 9 strata), and `opacity` has no signal (0.518).
 
