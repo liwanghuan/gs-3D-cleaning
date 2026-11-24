@@ -1,0 +1,18 @@
+non-wire layer Gaussians: 1,838; components (link 0.1 m): 160
+  >= 20 members: 14 clusters, 1,546 Gaussians (84.1%)
+  shown (largest 12): 12 clusters, 1,495 Gaussians (81.3%)
+  fragments (< 20): 292 Gaussians
+  C1: 372 Gaussians, views 000018.jpg 000019.jpg 000016.jpg
+  C2: 185 Gaussians, views 000002.jpg 000003.jpg 000004.jpg
+  C3: 138 Gaussians, views 000111.jpg 000110.jpg 000085.jpg
+  C4: 132 Gaussians, views 000111.jpg 000110.jpg
+  C5: 127 Gaussians, views 000002.jpg 000003.jpg 000004.jpg
+  C6: 117 Gaussians, views 000222.jpg 000223.jpg 000224.jpg
+  C7: 111 Gaussians, views 000085.jpg 000086.jpg 000084.jpg
+  C8: 111 Gaussians, views 000110.jpg 000111.jpg
+  C9: 63 Gaussians, views 000018.jpg 000016.jpg 000019.jpg
+  C10: 55 Gaussians, views 000002.jpg 000003.jpg 000004.jpg
+  C11: 47 Gaussians, views 000002.jpg 000003.jpg 000004.jpg
+  C12: 37 Gaussians, views 000110.jpg 000111.jpg 000112.jpg
+
+wrote judgement sheet out/reports/cluster_judgements.csv (judgement columns empty)

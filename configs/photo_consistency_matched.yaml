@@ -1,0 +1,25 @@
+# Matched photo-consistency (no rendering). Agreed with the researcher on
+# 2026-11-24: same view window for every group, equal view count, reference
+# restricted to truck surface facing the cameras (60 deg), 5,000 reference points.
+# Fixed before running.
+
+layer_split_config: configs/layer_split.yaml   # wire / rest split (same RANSAC rule, seed)
+
+# View window: training views named 000110..000119 (held-out test views, e.g. 000113,
+# are excluded by the eval split). Every point must be in frame in ALL window views,
+# so every point uses exactly the same views.
+window_first: "000110.jpg"
+window_last: "000119.jpg"
+
+# Reference = in-scope L2-negative Gaussians (truck surface) that face every window
+# camera. Normal = axis of the smallest scale, oriented away from the centroid of the
+# in-crop Gaussians; facing if angle(normal, direction to camera) <= this.
+facing_max_deg: 60
+reference_n: 5000
+seed: 0
+
+# Positive control, decided before running: the method is usable only if the
+# matched reference median colour std falls to <= half the unmatched value from
+# out/reports/layer_split.md (0.196 -> 0.098). If it does not, do not use it to
+# judge floaters.
+control_max_median_std: 0.098

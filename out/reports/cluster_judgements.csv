@@ -1,0 +1,13 @@
+cluster,n_gaussians,centre_scan_x,centre_scan_y,centre_scan_z,views,initial_judgement,judgement,judged_by,date,note,revision_note,status
+C1,372,-0.258,0.717,-5.231,000018.jpg 000019.jpg 000016.jpg,floater,floater,researcher (user),2026-11-24,有的在树上 有的在电线上。散成一团雾。,,round 1 (views mostly adjacent frames)
+C2,185,-1.323,3.091,-5.245,000002.jpg 000003.jpg 000004.jpg,wire,wire,researcher (user),2026-11-24,三张图都落在电线上，很整齐的一条直线。,,round 1 (views mostly adjacent frames)
+C3,138,-1.214,0.464,-5.324,000111.jpg 000110.jpg 000085.jpg,floater,floater,researcher (user),2026-11-24,落在树和天空中，很分散,,round 1 (views mostly adjacent frames)
+C4,132,-1.837,0.345,-5.009,000111.jpg 000110.jpg,floater,floater,researcher (user),2026-11-24,分别落在天空和窗户中，形状很分散,,round 1 (views mostly adjacent frames)
+C5,127,-2.635,2.569,-5.319,000002.jpg 000003.jpg 000004.jpg,object,object,researcher (user),2026-11-24,都落在树上，很集中,,round 1 (views mostly adjacent frames)
+C6,117,-0.247,-0.42,-5.337,000222.jpg 000223.jpg 000224.jpg,object,object,researcher (user),2026-11-24,都是在旁边的铁栅栏上。但是比较分散，这个更像是因为拍照问题导致的,"2026-11-24, researcher: kept after discussing that lighting changes colour, not where marks land.",round 1 (views mostly adjacent frames)
+C7,111,-0.665,0.15,-5.354,000085.jpg 000086.jpg 000084.jpg,object,floater,researcher (user),2026-11-24,背景都落在天空上，只不过比较浅,"2026-11-24, researcher: object -> floater. Reason: sky lies at infinity, so marks staying on sky in every view do not show an object at ~1.5 m above the truck.",round 1 (views mostly adjacent frames)
+C8,111,-2.74,0.562,-4.753,000110.jpg 000111.jpg,floater,floater,researcher (user),2026-11-24,第一个落在窗户上，第二个在电线杆。落在不同物体上。但是这个更像是拍照时候的光线问题，因为天空会比较亮,"2026-11-24, researcher: kept after discussing that lighting changes colour, not where marks land.",round 1 (views mostly adjacent frames)
+C9,63,-0.326,1.135,-5.257,000018.jpg 000016.jpg 000019.jpg,object,object,researcher (user),2026-11-24,都在树上的相同一片叶子,,round 1 (views mostly adjacent frames)
+C10,55,-3.196,2.358,-5.315,000002.jpg 000003.jpg 000004.jpg,object,object,researcher (user),2026-11-24,同C9都在相同的一片叶子。可能是那里有阳光射过来，是光线问题,,round 1 (views mostly adjacent frames)
+C11,47,-2.064,2.803,-5.308,000002.jpg 000003.jpg 000004.jpg,object,object,researcher (user),2026-11-24,都在同一片叶子缝隙里,,round 1 (views mostly adjacent frames)
+C12,37,-1.651,0.882,-5.294,000110.jpg 000111.jpg 000112.jpg,object,floater,researcher (user),2026-11-24,都是同一片天空,"2026-11-24, researcher: object -> floater. Reason: sky lies at infinity, so marks staying on sky in every view do not show an object at ~1.5 m above the truck.",round 1 (views mostly adjacent frames)

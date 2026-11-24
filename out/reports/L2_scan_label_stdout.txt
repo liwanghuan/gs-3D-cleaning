@@ -1,0 +1,14 @@
+Gaussians N = 2,541,226; scan points inside crop = 7,143,563
+inside crop (labelled): 516,630 (20.33%); outside (label missing): 2,024,596
+tau = 0.289 m
+unsupported_scan = 1: 5,124 of 516,630 (0.99%)
+dist_to_scan_m, in crop: p5 0.0012  p25 0.0032  p50 0.0077  p75 0.0181  p95 0.0686  p99 0.2840
+
+L1 vs L2 inside the crop (counts):
+L2 unsupported_scan       0     1
+L1 unsupported                   
+0                    511461  3319
+1                        45  1805
+agreement 99.35%; of L2 positives, L1 also flags 35.23%; of L1 positives, L2 also flags 97.57%
+
+wrote out/features/truck_L2_label.parquet  sha256 67bdb3d1035557995572a850a6be708615272be3e456353ff7be3d3d0162eb3a

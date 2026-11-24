@@ -1,0 +1,35 @@
+excluded as human-confirmed wire: 2,103 (all L2-positive: True)
+N = 2,541,226; in crop = 516,630; excluded unseen in crop = 139 (139 of them L2-positive)
+scope N = 514,388; L2 positives = 2,882 (0.56%); L1 positives = 1,688
+
+[1] AUC against L2 (pooled and within depth), and against L1 on the same Gaussians
+      feature artefact_if  auc_L2_pooled  auc_L2_within_depth  strata_used  strata_below_0_5  auc_L1_same_gaussians
+contrib_ratio        high         0.2214               0.2950            5                 4                 0.1311
+    view_frac         low         0.7596               0.7050            5                 1                 0.8782
+    isolation        high         0.7782               0.8345            5                 0                 0.7983
+      opacity         low         0.6413               0.6178            5                 1                 0.6649
+
+    per stratum (L2):
+ stratum  depth_lo  depth_hi      N  n_pos  contrib_ratio  isolation  opacity  view_frac
+       1    3.1723    3.5915 102878    219         0.4019     0.9780   0.6574     0.4644
+       2    3.5915    3.7457 102877    528         0.5267     0.8398   0.5408     0.5716
+       3    3.7457    3.9068 102878    303         0.3543     0.9425   0.4865     0.6658
+       4    3.9068    4.2035 102877    870         0.1392     0.7011   0.6797     0.8607
+       5    4.2035    5.8775 102878    962         0.0532     0.7113   0.7248     0.9625
+
+    AUC > 0.98 (pooled or depth-weighted): none
+    AUC > 0.98 in any single stratum: none
+
+    wrote out/figures/1_floater_roc_wire_excluded.png
+
+[2] best feature by within-depth AUC: isolation
+    clearly real = isolation artefact score <= p25 (128,597 Gaussians)
+    studied set: L2-positive AND clearly real = 348 of 2,882 L2 positives (12.07%)
+                       group      N  dist_to_scan_med  sh_dc_norm_med  nbr_colour_std_med  scan_z_p10  scan_z_med  scan_z_p90  depth_med  view_count_med
+L2+ & clearly real (studied)    348              1.68           1.785               0.142       -5.92      -5.267      -4.767      4.771               5
+                   other L2+   2534             1.528           2.353              0.2516      -8.554      -5.354      -5.123      4.022               7
+                         L2- 511506          0.007553           1.545              0.3307      -8.683      -7.827      -7.074      3.821              34
+    P(sh_dc_norm lower in studied set than in L2-) = 0.4327  (0.5 = no difference)
+    P(nbr_colour_std lower in studied set than in L2-) = 0.8381  (0.5 = no difference)
+    spatial clustering: median NN distance within studied set 0.0013 m vs equal-size random L2- sample 0.1379 m (seed 0)
+    wrote out/figures/T4_fp_spatial_wire_excluded.png

@@ -1,0 +1,17 @@
+# Human inspection of the overhead layer found in T4. Produces images only;
+# computes no metric and classifies nothing (AGENTS.md §2).
+
+features_config: configs/T1_truck.yaml
+label_config: configs/L2_scan_label.yaml
+align_config: configs/align_truck.yaml
+images: data/tandt/truck/images
+out_dir: out/inspection/overhead_layer      # gitignored (derived from dataset images)
+
+# POST HOC: chosen after seeing the T4 height histogram (out/figures/T4_fp_spatial.png).
+# Truck surface (L2-) ends near scan z = -6.7 m; the L2+ spike sits near -5.3 m.
+# Layer = in-scope (in crop, seen) L2-positive Gaussians with scan z above this.
+layer_min_scan_z: -6.0
+
+# Views: the training views with the most layer Gaussians projecting inside the image.
+n_views: 6
+zoom_margin_px: 80          # padding around the p2-p98 box of projected layer points

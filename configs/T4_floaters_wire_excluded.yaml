@@ -1,0 +1,49 @@
+# T4 floaters, corrected label — truck. Same as T4_floaters.yaml except that the
+# 2,103 Gaussians the researcher judged to be a real electric wire are excluded
+# from evaluation (neither positive nor negative). Agreed 2026-11-24; fixed
+# before running. Reported side by side with the uncorrected T4.
+
+features_config: configs/T1_truck.yaml        # feature table (40 views)
+label_config: configs/L2_scan_label.yaml      # L2 label table (professor-approved)
+align_config: configs/align_truck.yaml        # alignment, for scan-frame positions
+
+# Scope: inside the official crop AND seen by >= 1 sampled view.
+# Unseen in-crop Gaussians (139, all L2-positive) are excluded: view_frac = 0
+# would score them as artefacts for free. Decided by the user 2026-11-24.
+exclude_unseen: true
+
+# Features and the direction that counts as "artefact" (inherited from
+# make_plots.py, never flipped).
+features:
+  contrib_ratio: high
+  view_frac: low
+  isolation: high
+  opacity: low
+
+# Depth strata inside the scope (mean camera depth, equal-count bins).
+# 5 bins and min 100 per class because L2 has ~5,000 positives in scope
+# (10 bins x min 1,000 would leave no usable stratum). Set from the label's
+# class count, not from any AUC.
+n_strata: 5
+min_per_class: 100
+
+# AGENTS.md §7: an AUC above this triggers a shared-input check before reporting.
+suspicious_auc: 0.98
+
+# False-positive diagnostic (AGENTS.md T4, second part):
+#   best feature  = highest depth-stratified AUC against L2
+#   "clearly real" = best feature's artefact score at or below this percentile
+#                    of the in-scope Gaussians
+#   studied set   = L2 positives that the best feature calls clearly real
+clearly_real_pct: 25
+
+# Beyond the spec: sh_dc_norm is base-colour brightness, not colour variation.
+# Texture proxy = std of the DC colour over this many nearest Gaussians.
+texture_knn: 8
+
+figure: out/figures/1_floater_roc_wire_excluded.png
+figure_fp: out/figures/T4_fp_spatial_wire_excluded.png
+
+# Exclusion: wire part of the overhead layer, by the fixed rule in this config
+# (RANSAC line, 0.05 m inliers, seed 0) — see out/reports/layer_split.md.
+exclude_wire_config: configs/layer_split.yaml

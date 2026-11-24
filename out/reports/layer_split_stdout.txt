@@ -1,0 +1,11 @@
+layer Gaussians: 3,941
+wire part (RANSAC line, inlier 0.05 m): 2,103 (53.4%); line extent 2.82 m; direction (scan frame) [-0.927 -0.374  0.02 ]
+rest of layer: 1,838
+
+photo-consistency: colour std across views in frame (RGB mean, 0..1), min 3 views; no occlusion test
+                         group    N  N_used  views_in_frame_med  std_p25  std_median  std_p75
+                          wire 2103    2103             30.0000   0.0701      0.1419   0.2292
+                    layer rest 1838    1066             18.0000   0.0932      0.2153   0.2840
+truck surface (L2-, reference) 5000    5000            190.0000   0.1722      0.1960   0.2276
+  P(colour std of wire > truck surface) = 0.3177  (0.5 = no difference)
+  P(colour std of layer rest > truck surface) = 0.5327  (0.5 = no difference)

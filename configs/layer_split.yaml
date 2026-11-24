@@ -1,0 +1,21 @@
+# Split the T4 overhead layer by a fixed geometric rule, then measure
+# photo-consistency per part. Fixed before running. Classifies nothing beyond
+# the wire line fit; the tree-vs-floater call stays with the human (§2).
+
+inspect_config: configs/inspect_layer.yaml   # layer definition (post hoc z cut), paths
+
+# Wire part: the single 3D line with the most layer Gaussians within inlier_m
+# (RANSAC on scan-frame centres). Researcher judged the line-shaped part to be
+# a real electric wire (out/reports/inspect_layer.md, 2026-11-24).
+ransac_iterations: 2000
+ransac_inlier_m: 0.05
+seed: 0
+
+# Photo-consistency: project each Gaussian centre into every training view that
+# has it in frame, read the pixel colour (nearest pixel, published images),
+# and take the per-channel std across those views, averaged over RGB (0..1).
+# No occlusion test: real points hidden in some views also vary.
+min_views: 3
+
+# Reference group: random in-scope L2-negative Gaussians (truck surface).
+reference_n: 5000

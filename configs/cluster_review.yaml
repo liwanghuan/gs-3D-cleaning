@@ -1,0 +1,16 @@
+# Cluster-level human review of the overhead layer's non-wire part (tree vs
+# floater). Agreed with the researcher 2026-11-24. Fixed before running.
+# Produces images and an empty judgement sheet; classifies nothing (§2).
+
+layer_split_config: configs/layer_split.yaml   # wire/rest split (same rule, seed)
+
+# Connected components: two Gaussians are linked if their centres are within this
+# distance (scan-frame metres).
+link_m: 0.10
+min_cluster_size: 20        # smaller components are counted as fragments, not shown
+max_clusters: 12            # show at most the 12 largest
+views_per_cluster: 3        # training views with the most cluster members in frame
+zoom_margin_px: 40          # published-image pixels around the p2-p98 box
+
+out_dir: out/inspection/clusters                  # images (gitignored)
+sheet: out/reports/cluster_judgements.csv         # judgement sheet (committed)

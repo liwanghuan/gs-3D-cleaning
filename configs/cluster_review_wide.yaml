@@ -1,0 +1,20 @@
+# Round 2 of the cluster review: same clusters as configs/cluster_review.yaml, but
+# views chosen to differ as much as possible, because round 1 picked mostly
+# adjacent frames, where marks land on the same thing whether or not an object is
+# there. Agreed with the researcher 2026-11-24; fixed before rendering.
+
+layer_split_config: configs/layer_split.yaml
+link_m: 0.10
+min_cluster_size: 20
+max_clusters: 12
+views_per_cluster: 3
+zoom_margin_px: 40
+
+# Candidates: training views with at least this share of the cluster in frame.
+# Chosen: the set of views_per_cluster candidates whose smallest pairwise angle,
+# seen from the cluster centroid, is largest.
+view_selection: max_angle
+min_frac_in_frame: 0.5
+
+out_dir: out/inspection/clusters_wide
+sheet: out/reports/cluster_judgements_round2.csv

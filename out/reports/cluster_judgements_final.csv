@@ -1,0 +1,13 @@
+cluster,n_gaussians,initial_judgement,judgement,views,judgement_r2,views_r2,final,evidence
+C1,372,floater,floater,000018.jpg 000019.jpg 000016.jpg,,000018.jpg 000019.jpg,floater,"narrow views only (round 1, weak)"
+C2,185,wire,wire,000002.jpg 000003.jpg 000004.jpg,wire,000011.jpg 000107.jpg 000120.jpg,wire,wide views (round 2)
+C3,138,floater,floater,000111.jpg 000110.jpg 000085.jpg,,000085.jpg 000110.jpg 000111.jpg,floater,"narrow views only (round 1, weak)"
+C4,132,floater,floater,000111.jpg 000110.jpg,,000111.jpg,floater,"narrow views only (round 1, weak)"
+C5,127,object,object,000002.jpg 000003.jpg 000004.jpg,floater,000006.jpg 000099.jpg 000114.jpg,floater,wide views (round 2)
+C6,117,object,object,000222.jpg 000223.jpg 000224.jpg,floater,000019.jpg 000084.jpg 000224.jpg,floater,wide views (round 2)
+C7,111,object,floater,000085.jpg 000086.jpg 000084.jpg,,000085.jpg 000086.jpg,floater,"narrow views only (round 1, weak)"
+C8,111,floater,floater,000110.jpg 000111.jpg,,000110.jpg 000111.jpg,floater,"narrow views only (round 1, weak)"
+C9,63,object,object,000018.jpg 000016.jpg 000019.jpg,,000016.jpg 000018.jpg 000019.jpg,object,"narrow views only (round 1, weak)"
+C10,55,object,object,000002.jpg 000003.jpg 000004.jpg,floater,000006.jpg 000098.jpg 000114.jpg,floater,wide views (round 2)
+C11,47,object,object,000002.jpg 000003.jpg 000004.jpg,floater,000015.jpg 000100.jpg 000117.jpg,floater,wide views (round 2)
+C12,37,object,floater,000110.jpg 000111.jpg 000112.jpg,floater,000103.jpg 000111.jpg 000119.jpg,floater,wide views (round 2)

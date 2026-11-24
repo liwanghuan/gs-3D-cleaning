@@ -1,0 +1,21 @@
+[1] crop coverage
+  training cameras inside the crop: 0 of 219
+  camera centre z (scan frame): -7.568 .. -6.861; crop z range -11.159 .. -4.445
+  Gaussians inside the crop: 516,630 of 2,541,226 (20.33%)
+
+[2] in-crop Gaussians by depth decile; distance to scan bands: on <= 0.02 m, off 0.02..0.289 m, far > 0.289 m
+ stratum  depth_lo  depth_hi      N  in_crop_pct  N_in_crop  on_surface_pct  off_surface_pct  far_pct  L1_unsup_in_crop_pct
+       1     3.046     3.814 253083        99.63     252142           79.25             20.4   0.3554               0.09836
+       2     3.814     4.383 253083        86.85     219813           75.67            23.79   0.5446                0.4959
+       3     4.383     9.487 253083         17.6      44536           75.99            17.51    6.494                0.8375
+       4     9.487     11.43 253083            0          0             NaN              NaN      NaN                   NaN
+       5     11.43     13.19 253082            0          0             NaN              NaN      NaN                   NaN
+       6     13.19     17.71 253083            0          0             NaN              NaN      NaN                   NaN
+       7     17.71     20.95 253083            0          0             NaN              NaN      NaN                   NaN
+       8     20.95      24.5 253083            0          0             NaN              NaN      NaN                   NaN
+       9      24.5     33.19 253083            0          0             NaN              NaN      NaN                   NaN
+      10     33.19      89.6 253083            0          0             NaN              NaN      NaN                   NaN
+
+  all in-crop seen Gaussians N = 516,491: far from scan 0.97%, L1 unsupported 0.33%, both 0.32%
+  of the far-from-scan Gaussians (N = 4,985), L1 calls 33.42% unsupported
+  L1 vs far-from-scan inside crop: L1 positives 1,711, scan-far 4,985, both 1,666; precision 97.37%, recall 33.42%

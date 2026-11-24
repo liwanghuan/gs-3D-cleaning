@@ -1,0 +1,9 @@
+layer Gaussians: 3,941 (L2+, seen, scan z > -6.0)
+camera model 1957x1091 px; published image (979, 546)
+training views with >= 1 layer Gaussian in frame: 132 of 219
+  000111.jpg: 3,259 in frame -> out/inspection/overhead_layer/000111.png
+  000110.jpg: 3,126 in frame -> out/inspection/overhead_layer/000110.png
+  000112.jpg: 2,844 in frame -> out/inspection/overhead_layer/000112.png
+  000119.jpg: 2,836 in frame -> out/inspection/overhead_layer/000119.png
+  000118.jpg: 2,767 in frame -> out/inspection/overhead_layer/000118.png
+  000116.jpg: 2,693 in frame -> out/inspection/overhead_layer/000116.png

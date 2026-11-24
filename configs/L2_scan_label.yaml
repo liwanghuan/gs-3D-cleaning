@@ -1,0 +1,22 @@
+# L2 label: distance from each Gaussian centre to the Tanks & Temples laser scan.
+#
+# Approval (reported by the user, 2026-11-10): the professor approved using the
+# laser-scan label and the estimated Inria -> scan alignment
+# (out/reports/align_truck.md), and the other options (L3, L4, F1, F2) for later.
+# First run: L2 with the original features only.
+#
+# Fixed before this label was computed.
+
+features_config: configs/T1_truck.yaml     # Gaussian ids and centres (T1 parquet)
+align_config: configs/align_truck.yaml     # scan, official crop, alignment matrix
+out: out/features/truck_L2_label.parquet   # gitignored; the T1 feature table is not modified
+
+# Positive (unsupported_scan = 1) if centre-to-scan distance > tau, in scan-frame metres.
+# 0.289 = L1 tau 0.22589 Inria units x alignment scale 1.280941, so L1 and L2
+# use the same physical distance. Chosen by the user on 2026-11-10 from that
+# derivation, not from any L2 result.
+tau_scan_m: 0.289
+
+# Scope: only Gaussians whose centre lies inside the official T&T crop get a
+# label. Outside the crop the label is missing (<NA>), never 0.
+scope: official_crop

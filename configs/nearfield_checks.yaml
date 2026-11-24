@@ -1,0 +1,14 @@
+# Near-field checks before choosing a near-field label. Diagnosis only:
+# uses the estimated Inria -> scan alignment to see what the scan covers;
+# labels nothing. Fixed before running.
+
+features_config: configs/T1_truck.yaml       # parquet, 40 views, scene paths
+align_config: configs/align_truck.yaml       # scan, crop, alignment matrix
+n_strata: 10                                 # same depth deciles as depth_strata.yaml
+
+# Gaussian centre -> nearest scan point, scan-frame metres.
+#   on-surface  : d <= on_surface_m       (~2x the ~1 cm alignment residual)
+#   off-surface : on_surface_m < d <= far_m
+#   far         : d > far_m               (= L1 tau 0.22589 units x scale 1.280941)
+on_surface_m: 0.02
+far_m: 0.289

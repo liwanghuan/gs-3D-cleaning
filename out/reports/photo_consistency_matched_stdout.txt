@@ -1,0 +1,13 @@
+view window (9 training views): 000110.jpg, 000111.jpg, 000112.jpg, 000114.jpg, 000115.jpg, 000116.jpg, 000117.jpg, 000118.jpg, 000119.jpg
+reference: 511,506 in-scope L2- candidates, 33,109 in frame and facing (<= 60 deg) in all window views, sampled 5,000
+
+colour std across the same 9 views (RGB mean, 0..1), nearest pixel:
+                            group    N  N_in_all_window_views  std_p25  std_median  std_p75
+                             wire 2103                   1858   0.0217      0.1168   0.1911
+                       layer rest 1838                    306   0.0187      0.0926   0.2119
+truck surface (matched reference) 5000                   5000   0.0536      0.1156   0.1740
+
+positive control: matched reference median 0.1156 vs threshold 0.098 -> FAIL
+  method NOT usable to judge floaters here (decided before running)
+  P(colour std of wire > matched reference) = 0.4730
+  P(colour std of layer rest > matched reference) = 0.4745

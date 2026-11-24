@@ -3,3 +3,4 @@ out/features/
 .venv/
 __pycache__/
 *.pyc
+out/inspection/
