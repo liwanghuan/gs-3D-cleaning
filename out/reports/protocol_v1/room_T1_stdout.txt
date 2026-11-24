@@ -1,0 +1,45 @@
+loaded 1,593,376 Gaussians
+40 of 272 training views (1557x1038 px), 112,627 reference points
+computing 3D covariances...
+median reference spacing = 0.01423 scene units; tau = 20.0 x spacing = 0.28465
+
+wrote out/features/room.parquet  (1,593,376 rows, 22 cols)
+columns: gaussian_id, x, y, z, opacity, scale_max, scale_min, volume, anisotropy, planarity, sh_dc_norm, knn_mean, knn_max, isolation, view_count, view_frac, cov_sum, cov_max, radius_max_px, contrib_ratio, dist_to_reference, unsupported
+                      count      mean       std       min       25%       50%       75%       max
+gaussian_id       1.593e+06 7.967e+05   4.6e+05         0 3.983e+05 7.967e+05 1.195e+06 1.593e+06
+x                 1.593e+06    0.8945     2.193    -15.15   -0.9791     1.405     2.802     29.97
+y                 1.593e+06     1.199     2.971    -11.44   -0.9035     1.484     2.878     20.53
+z                 1.593e+06  -0.07289     4.767    -43.05    -2.338    0.8082     2.872      11.8
+opacity           1.593e+06    0.3598    0.4018 0.0008173   0.01572    0.1282    0.8323         1
+scale_max         1.593e+06   0.03202   0.04077 1.823e-05   0.01209   0.02353    0.0381      3.02
+scale_min         1.593e+06  0.003206  0.007463 2.015e-10 0.0003629  0.001295  0.003274    0.4837
+volume            1.593e+06 2.286e-05  0.000782 3.648e-16  1.19e-08 1.166e-07 8.248e-07    0.3068
+anisotropy        1.593e+06      3409 1.074e+06     1.003     6.751     16.33     50.01 1.134e+09
+planarity         1.593e+06    0.3253    0.2597 1.065e-06    0.1143    0.2468    0.4875         1
+sh_dc_norm        1.593e+06     1.712    0.8464 0.0007611      1.01     1.601     2.363     10.99
+knn_mean          1.593e+06   0.02088   0.04374 0.0001233  0.006713   0.01213   0.02207     19.31
+knn_max           1.593e+06   0.02751   0.05645 0.0002307  0.009138   0.01618   0.02914      24.1
+isolation         1.593e+06     1.722     3.608   0.01017    0.5536         1      1.82      1593
+view_count        1.593e+06     9.988     7.629         0         3         9        16        40
+view_frac         1.593e+06    0.2497    0.1907         0     0.075     0.225       0.4         1
+cov_sum           1.593e+06      4374 9.414e+04         0     4.531     77.15     608.8 2.608e+07
+cov_max           1.593e+06     888.2 1.878e+04         0     1.018     14.79     102.3 1.616e+06
+radius_max_px     1.593e+06     25.12     114.6         0     5.781      14.9     29.63 5.089e+04
+contrib_ratio     1.593e+06      1.65     1.162         0     1.101     1.459     2.066     16.62
+dist_to_reference 1.593e+06    0.2014    0.5033  7.92e-05   0.02136   0.04778    0.1462     32.49
+unsupported       1.593e+06    0.1694    0.3751         0         0         0         0         1
+
+range checks (nothing clipped):
+  PASS  opacity in [0,1]     violations: 0 / 1,593,376
+  PASS  scale_min > 0        violations: 0 / 1,593,376
+  PASS  scale_max > 0        violations: 0 / 1,593,376
+  PASS  view_frac in [0,1]   violations: 0 / 1,593,376
+  PASS  all values finite    violations: 0 / 1,593,376
+
+notable but in range:
+     221,676 / 1,593,376  (13.91%)  view_count == 0 (seen by no sampled view)
+         479 / 1,593,376  (0.03%)  opacity == 1.0 exactly (float32 sigmoid saturation)
+       5,818 / 1,593,376  (0.37%)  scale_min < 1e-6 scene units
+      10,557 / 1,593,376  (0.66%)  anisotropy > 1e4
+
+unsupported (weak floater label): 269,933 of 1,593,376 = 16.94%

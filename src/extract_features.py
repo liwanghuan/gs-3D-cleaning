@@ -242,7 +242,7 @@ def reference_features(g, ref_xyz, scale_mult):
 
 
 # --------------------------------------------------------------------------
-def load_colmap(path, train_max_width, eval_holdout):
+def load_colmap(path, train_max_width, eval_holdout, train_height=None):
     """
     Cameras and sparse points from COLMAP binaries. Intrinsics are rescaled
     to the resolution 3DGS trained at (its default `-r -1` downsamples any
@@ -274,6 +274,8 @@ def load_colmap(path, train_max_width, eval_holdout):
         W, H = cam["width"], cam["height"]
         s = W / train_max_width if (train_max_width and W > train_max_width) else 1.0
         Wt, Ht = round(W / s), round(H / s)
+        if train_height:                 # explicit size of the training images
+            Ht = train_height
         sx, sy = Wt / W, Ht / H
 
         cams.append(dict(name=img["name"],
@@ -340,7 +342,7 @@ def main():
     print(f"loaded {N:,} Gaussians")
 
     cams, ref_pts = load_colmap(cfg["colmap"], cfg["projection"]["train_max_width"],
-                                cfg["eval_holdout"])
+                                cfg["eval_holdout"], cfg["projection"].get("train_height"))
     n_total = len(cams)
     cams = select_views(cams, max_views)
     print(f"{len(cams)} of {n_total} training views "

@@ -1,0 +1,19 @@
+Spearman rho over seen Gaussians (random 500,000 per scene, seed 0)
+
+scene                             truck  bicycle  garden   room  playroom
+pair                                                                     
+contrib_F1 ~ contrib_F2          -0.515   -0.726  -0.778 -0.230    -0.271
+contrib_F1 ~ contrib_ratio       -0.379   -0.609  -0.564 -0.033    +0.112
+contrib_F1 ~ isolation           +0.239   +0.416  +0.366 +0.077    +0.137
+contrib_F1 ~ max_parallax_deg    -0.601   -0.775  -0.938 -0.377    -0.361
+contrib_ratio ~ contrib_F2       +0.699   +0.748  +0.716 +0.651    +0.334
+isolation ~ contrib_F2           -0.357   -0.434  -0.263 -0.088    -0.016
+isolation ~ contrib_ratio        -0.215   -0.262  -0.076 -0.039    +0.110
+max_parallax_deg ~ contrib_F2    +0.832   +0.842  +0.856 +0.675    +0.459
+max_parallax_deg ~ contrib_ratio +0.801   +0.745  +0.730 +0.608    +0.496
+max_parallax_deg ~ isolation     -0.446   -0.541  -0.323 -0.258    -0.056
+view_count ~ contrib_F1          -0.797   -0.979  -0.964 -0.808    -0.687
+view_count ~ contrib_F2          +0.777   +0.790  +0.850 +0.510    +0.439
+view_count ~ contrib_ratio       +0.794   +0.737  +0.732 +0.525    +0.563
+view_count ~ isolation           -0.328   -0.413  -0.310 -0.093    -0.017
+view_count ~ max_parallax_deg    +0.873   +0.822  +0.977 +0.616    +0.642

@@ -1,0 +1,31 @@
+[room] N = 1,593,376; L1 unsupported = 269,933 (16.94%)
+
+[T3] init points 112,627; median init spacing 0.014232; max |d_init - d_ref| = 0 (0 => init cloud == reference)
+  near-init N =    231,193 (14.51%)  unsupported = 0 (0.00%)
+  far-init  N =  1,362,183 (85.49%)  unsupported = 269,933 (19.82%)
+
+scope: seen by >= 1 of 40 views = 1,371,700; excluded unseen = 221,676 (of which L1+ 150,907)
+
+[strata] 10 equal-count bins of mean camera depth; used 8 (min 1000 per class)
+ stratum  depth_lo  depth_hi      N  n_pos  n_neg  used  contrib_ratio  view_frac  isolation  opacity  max_parallax_deg  sh_rest_ratio  contrib_F1  contrib_F2
+       1    1.1058    5.2726 137170   2673 134497  True         0.4985     0.7766     0.8543   0.5440            0.5861         0.5162      0.8208      0.5345
+       2    5.2726    5.5308 137170   1065 136105  True         0.2435     0.9156     0.8639   0.6023            0.8957         0.6279      0.9291      0.2257
+       3    5.5308    5.7889 137170    806 136364 False            NaN        NaN        NaN      NaN               NaN            NaN         NaN         NaN
+       4    5.7889    6.2053 137170    889 136281 False            NaN        NaN        NaN      NaN               NaN            NaN         NaN         NaN
+       5    6.2053    6.7583 137170   1909 135261  True         0.4943     0.8714     0.7817   0.6406            0.8613         0.6063      0.9063      0.4540
+       6    6.7583    7.5293 137170   4855 132315  True         0.4555     0.7022     0.8301   0.5252            0.5615         0.4800      0.6903      0.4077
+       7    7.5293    8.4622 137170  21517 115653  True         0.3339     0.7940     0.5401   0.6734            0.7212         0.5478      0.7333      0.3435
+       8    8.4622    9.1465 137170  30834 106336  True         0.1946     0.8659     0.5496   0.7196            0.8345         0.5118      0.8540      0.1982
+       9    9.1465   10.4322 137170  31265 105905  True         0.1377     0.9077     0.5044   0.6202            0.8704         0.5691      0.9000      0.1393
+      10   10.4322   46.8034 137170  23213 113957  True         0.2639     0.8449     0.7962   0.4910            0.8623         0.5974      0.8536      0.2673
+
+[AUC] against L1 `unsupported` (seen only)
+         feature artefact_if  auc_pooled  auc_within_depth  auc_far_init  strata_used  strata_below_0_5  stratum_min  stratum_max  n_pos   n_neg  n_pos_far   n_far  suspicious
+   contrib_ratio        high      0.1795            0.3278        0.1869            8                 8       0.1377       0.4985 119026 1252674     119026 1141704       False
+       view_frac         low      0.8832            0.8348        0.8707            8                 0       0.7022       0.9156 119026 1252674     119026 1141704       False
+       isolation        high      0.6846            0.7150        0.6608            8                 0       0.5044       0.8639 119026 1252674     119026 1141704       False
+         opacity         low      0.6552            0.6020        0.6444            8                 1       0.4910       0.7196 119026 1252674     119026 1141704       False
+max_parallax_deg         low      0.8836            0.7741        0.8693            8                 0       0.5615       0.8957 119026 1252674     119026 1141704       False
+   sh_rest_ratio        high      0.5400            0.5571        0.5604            8                 1       0.4800       0.6279 119026 1252674     119026 1141704       False
+      contrib_F1        high      0.8392            0.8359        0.8233            8                 0       0.6903       0.9291 119026 1252674     119026 1141704       False
+      contrib_F2        high      0.1660            0.3213        0.1794            8                 7       0.1393       0.5345 119026 1252674     119026 1141704       False

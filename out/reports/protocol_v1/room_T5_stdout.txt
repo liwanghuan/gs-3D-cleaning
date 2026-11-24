@@ -1,0 +1,9 @@
+[room] N = 1,593,376; top 2.0% by anisotropy: n = 31,868 (anisotropy >= 1761); median COLMAP spacing = 0.014232
+  near  (<= 1.0 x spacing = 0.01423): 5,069 (15.91%)
+  ambiguous                              : 25,105 (78.78%)
+  far   (>  20.0 x spacing = 0.2846, == L1+): 1,694 (5.32%)
+  unseen by all 40 views within the subset: 465
+  near      median: view_count 20, isolation 0.600, opacity 0.108, anisotropy 4065.5
+  ambiguous median: view_count 16, isolation 0.635, opacity 0.071, anisotropy 5432.3
+  far       median: view_count 6, isolation 4.021, opacity 0.105, anisotropy 4202.9
+  sample: 20 ambiguous Gaussians -> out/reports/protocol_v1/room_T5_sample.csv (not classified)

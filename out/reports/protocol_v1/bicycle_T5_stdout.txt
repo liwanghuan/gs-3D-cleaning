@@ -1,0 +1,9 @@
+[bicycle] N = 6,131,954; top 2.0% by anisotropy: n = 122,640 (anisotropy >= 3643); median COLMAP spacing = 0.033757
+  near  (<= 1.0 x spacing = 0.03376): 37,523 (30.60%)
+  ambiguous                              : 69,497 (56.67%)
+  far   (>  20.0 x spacing = 0.6751, == L1+): 15,620 (12.74%)
+  unseen by all 40 views within the subset: 3
+  near      median: view_count 30, isolation 0.167, opacity 0.032, anisotropy 6696.0
+  ambiguous median: view_count 28, isolation 0.236, opacity 0.035, anisotropy 8621.6
+  far       median: view_count 5, isolation 1.246, opacity 0.093, anisotropy 7776.3
+  sample: 20 ambiguous Gaussians -> out/reports/protocol_v1/bicycle_T5_sample.csv (not classified)

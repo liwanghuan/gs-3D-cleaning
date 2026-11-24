@@ -2,6 +2,11 @@
 
 Running log, newest first. Each entry: three lines. Every number from a committed script + config.
 
+## 2026-11-24 · T8 cross-scene, protocol v1 · truck, bicycle, garden, room, playroom · `configs/protocol_v1.yaml`
+- One frozen pipeline (signed off before download) on 5 scenes vs L1. Within-depth AUC range: view_frac 0.690–0.845 and isolation 0.587–0.715 stable on 5/5; contrib_ratio 0.271–0.437 and F2 0.248–0.428 inverted on 5/5; max_parallax (4/5), opacity (3/5), sh_rest_ratio (1/5) not stable. Report: `out/reports/T8_cross_scene.md`.
+- F1 is stable but is view_count re-expressed (Spearman −0.69 to −0.98); isolation is the only stable signal nearly independent of view_count (|ρ| ≤ 0.41). Garden's AUC > 0.98 stratum is a shared cause (positives outside the camera ring, seen by ≤ 2 views), reported not removed.
+- T6: L1+ larger on every scene, but anisotropy also moves on 4/5 (leakage per the T6 rule). T5 (option B, researcher's choice: near ≤ 1 × spacing, far > 20 ×): ambiguous share of the top-2 % anisotropic Gaussians is 36.3 % (truck, n = 50,825), 56.7 % (bicycle, 122,640), 73.9 % (garden, 116,696), 78.8 % (room, 31,868), 66.7 % (playroom, 50,923); the subset is mostly near-transparent (median opacity 0.02–0.14). Two protocol changes logged, both before the affected step ran.
+
 ## 2026-11-24 · Cluster review, two rounds · truck · `configs/cluster_review*.yaml`
 - 12 largest non-wire layer clusters (1,495 Gaussians), judged by the researcher: floater 1,247 (383 on wide views, 864 on narrow views only), second wire segment 185 (C2), object 63 (C9, narrow only). Report: `out/reports/cluster_review.md`.
 - All 4 clusters called "object" on adjacent frames that could be re-shown from views 34–65° apart flipped to floater. Human review needs wide-baseline views, a lesson for the agent's human-in-the-loop step.

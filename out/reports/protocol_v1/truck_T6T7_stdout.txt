@@ -1,0 +1,10 @@
+[truck] T6 scope: seen 2,530,829 of 2,541,226; unsupported 1,068,450, supported 1,462,379
+  volume      shift +0.728 dec  95% CI [+0.721, +0.734]
+  scale_max   shift +0.209 dec  95% CI [+0.208, +0.210]
+  anisotropy  shift -0.010 dec  95% CI [-0.014, -0.007]
+  planarity   shift -0.033 raw  95% CI [-0.033, -0.032]
+
+[truck] T7: N = 2,541,226; seen by < 3 of 40 views: 197,473 (7.77%); unseen 10,397
+  angular_spread (seen, N=2,530,829) p[10, 25, 50, 75, 90]: 0.0005, 0.0014, 0.0053, 0.0514, 0.6633
+  max_parallax_deg (seen by >= 2, N=2,433,415) p[10, 25, 50, 75, 90]: 5.72, 10.04, 19.84, 87.57, 166.90
+  seen by >= 10 views but max parallax < 5.0 deg: 1,642 (0.12% of N=1,317,986)

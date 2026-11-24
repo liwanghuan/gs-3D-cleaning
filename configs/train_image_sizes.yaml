@@ -1,0 +1,9 @@
+# Pixel size of the images each published model was trained on (the folder
+# named by `images=` in the model's cfg_args, loaded with resolution=1).
+# Read from JPEG headers with tools/remote_jpeg_size.py on 2026-11-24
+# (3 images sampled per scene, all identical). Replaces the protocol's
+# original "from cameras.json" rule — see configs/protocol_v1.yaml `changes`.
+bicycle:  {images: images_4, width: 1237, height: 822,  source: 360_v2.zip}
+garden:   {images: images_4, width: 1297, height: 840,  source: 360_v2.zip}
+room:     {images: images_2, width: 1557, height: 1038, source: 360_v2.zip}
+playroom: {images: images,   width: 1264, height: 832,  source: tandt_db.zip (db/)}

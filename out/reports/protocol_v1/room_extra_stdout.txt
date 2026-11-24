@@ -1,0 +1,12 @@
+1,593,376 Gaussians, 40 views
+seeing set identical to T1 view_count: yes
+SH rest coefficients read: 45
+wrote out/features/room_extra.parquet (1,593,376 rows)
+                     count   mean    std        min      25%    50%    75%    max
+mean_depth       1.372e+06  7.711  3.812      1.106    5.642  6.758  8.814   46.8
+max_parallax_deg 1.593e+06  62.05  54.93          0    10.11  29.39  118.6  179.1
+angular_spread   1.372e+06 0.1596 0.1666 -1.203e-07 0.006866 0.1013 0.3065 0.9087
+contrib_F1       1.372e+06 0.2681  0.245    0.03661   0.1119 0.1736 0.3109      1
+contrib_F2       1.372e+06   1.26 0.2877          1    1.078  1.183  1.337  9.614
+sh_rest_ratio    1.593e+06 0.1964 0.4907          0  0.07706 0.1347 0.2312    527
+unseen (NaN depth/spread/F1/F2): 221,676

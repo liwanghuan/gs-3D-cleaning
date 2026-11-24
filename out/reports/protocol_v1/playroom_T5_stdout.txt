@@ -1,0 +1,9 @@
+[playroom] N = 2,546,116; top 2.0% by anisotropy: n = 50,923 (anisotropy >= 2347); median COLMAP spacing = 0.025006
+  near  (<= 1.0 x spacing = 0.02501): 3,289 (6.46%)
+  ambiguous                              : 33,958 (66.68%)
+  far   (>  20.0 x spacing = 0.5001, == L1+): 13,676 (26.86%)
+  unseen by all 40 views within the subset: 6
+  near      median: view_count 5, isolation 0.717, opacity 0.123, anisotropy 3818.2
+  ambiguous median: view_count 5, isolation 1.094, opacity 0.141, anisotropy 4531.3
+  far       median: view_count 5, isolation 0.832, opacity 0.143, anisotropy 7351.7
+  sample: 20 ambiguous Gaussians -> out/reports/protocol_v1/playroom_T5_sample.csv (not classified)

@@ -1,0 +1,9 @@
+[truck] N = 2,541,226; top 2.0% by anisotropy: n = 50,825 (anisotropy >= 4.769e+04); median COLMAP spacing = 0.011295
+  near  (<= 1.0 x spacing = 0.01129): 312 (0.61%)
+  ambiguous                              : 18,470 (36.34%)
+  far   (>  20.0 x spacing = 0.2259, == L1+): 32,043 (63.05%)
+  unseen by all 40 views within the subset: 0
+  near      median: view_count 31, isolation 0.275, opacity 0.035, anisotropy 90653.1
+  ambiguous median: view_count 12, isolation 0.745, opacity 0.026, anisotropy 100656.6
+  far       median: view_count 8, isolation 0.854, opacity 0.023, anisotropy 115587.9
+  sample: 20 ambiguous Gaussians -> out/reports/protocol_v1/truck_T5_sample.csv (not classified)

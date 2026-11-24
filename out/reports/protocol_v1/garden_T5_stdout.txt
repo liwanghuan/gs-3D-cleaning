@@ -1,0 +1,9 @@
+[garden] N = 5,834,784; top 2.0% by anisotropy: n = 116,696 (anisotropy >= 9089); median COLMAP spacing = 0.021249
+  near  (<= 1.0 x spacing = 0.02125): 21,311 (18.26%)
+  ambiguous                              : 86,204 (73.87%)
+  far   (>  20.0 x spacing = 0.425, == L1+): 9,181 (7.87%)
+  unseen by all 40 views within the subset: 12
+  near      median: view_count 40, isolation 0.197, opacity 0.020, anisotropy 21445.0
+  ambiguous median: view_count 12, isolation 0.561, opacity 0.028, anisotropy 18893.6
+  far       median: view_count 8, isolation 1.282, opacity 0.032, anisotropy 25410.5
+  sample: 20 ambiguous Gaussians -> out/reports/protocol_v1/garden_T5_sample.csv (not classified)

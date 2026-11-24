@@ -1,0 +1,145 @@
+# Frozen evaluation protocol v1 — multi-scene run (T8 + T3–T7 per scene)
+# Signed off by the researcher before any new scene was downloaded. Once signed, nothing below changes
+# for bicycle / garden / room / playroom. Any later change is logged at the
+# bottom with old value, new value, reason, and both results re-reported
+# (AGENTS.md §1.2). Truck (development scene) is re-run under this same file.
+#
+# Status: FROZEN 2026-11-24 — approved by the researcher ("The rule looks good").
+# Professor review pending; any change it brings is logged under `changes`.
+
+version: 1
+scenes:
+  truck:    {dataset: tandt,    role: development}
+  bicycle:  {dataset: mipnerf360, kind: outdoor}
+  garden:   {dataset: mipnerf360, kind: outdoor}
+  room:     {dataset: mipnerf360, kind: indoor}
+  playroom: {dataset: deepblending, kind: indoor}
+
+# ---------------------------------------------------------------- inputs
+inputs:
+  model: published Inria pre-trained model, iteration_30000 (no training)
+  cameras: COLMAP sparse/0 shipped with the dataset
+  # Training resolution = pixel size of the images in the folder cfg_args
+  # names (configs/train_image_sizes.yaml), never chosen. COLMAP intrinsics are scaled
+  # to it. Train/test split from cfg_args: if eval=True, every 8th image by
+  # sorted name (index % 8 == 0) is held out and not used as evidence.
+  train_resolution: from_training_images   # changed 2026-11-24, see `changes`
+  eval_holdout: 8            # applied only if cfg_args says eval=True
+  max_views: 40              # evenly spaced training views, as on truck
+
+# ---------------------------------------------------------------- features
+# Same code and constants as configs/T1_truck.yaml.
+features:
+  knn_k: 8
+  projection: {near_plane: 0.2, lowpass_px2: 0.3, footprint_sigma: 3.0, jacobian_fov_clamp: 1.3}
+  # Direction = which end counts as "artefact". Inherited from make_plots.py,
+  # never flipped after looking; an AUC < 0.5 is reported as is.
+  directions:
+    contrib_ratio: high
+    view_frac: low
+    isolation: high
+    opacity: low
+
+# Pre-registered NEW signals (approved in principle; definitions fixed here,
+# before any scene is run, including truck re-run). Directions fixed now.
+new_signals:
+  max_parallax_deg:          # largest angle between rays from the Gaussian
+    direction: low           #   centre to any two seeing cameras
+  sh_rest_ratio:             # ||SH coeffs degree>=1|| / ||SH DC||
+    direction: high          #   (view-dependent colour; floaters fake speculars)
+  contrib_F1:                # max_v(opacity*area_v) / sum_v(opacity*area_v)
+    direction: high          #   (removes the view_count cap of max/mean)
+  contrib_F2:                # max/mean of area_v * z_v^2 / (fx_v * fy_v)
+    direction: high          #   (per-view area corrected for distance)
+
+# ---------------------------------------------------------------- label
+label:
+  name: L1_colmap            # only label available on all 5 scenes
+  # unsupported = distance to nearest COLMAP sparse point > mult x median
+  # nearest-neighbour spacing of the sparse points (scene statistic).
+  unsupported_spacing_mult: 20.0
+  # Weak supervision. Known failure modes to restate in every report:
+  # camera-distance detector (truck: 0.13% -> 93.9% across depth deciles),
+  # blind near cameras, absent on textureless surfaces, shares its input
+  # with the 3DGS initialisation (T3).
+  laser_label: truck_only    # L2 is reported for truck alongside, never mixed
+
+# ---------------------------------------------------------------- evaluation
+evaluation:
+  exclude_unseen: true       # view_count == 0 removed, count reported
+  auc: mann_whitney_tie_aware
+  depth_strata: {n: 10, min_per_class: 1000, depth: mean_camera_depth_over_seeing_views}
+  report: [pooled_auc, within_depth_auc_mean, per_stratum_auc]
+  suspicious_auc: 0.98       # pooled AND every stratum -> shared-input check
+  # Cross-scene verdict (T8): a feature is "stable" only if its within-depth
+  # AUC is on the same side of 0.5 on all 5 scenes. Rank changes are reported,
+  # not averaged away.
+  stability_rule: same_side_of_0.5_all_scenes
+
+confound_T3:
+  near_init_spacing_mult: 1.0   # model's own input.ply = init cloud
+
+needles_T5:
+  top_pct: 2.0               # top 2% by anisotropy, over ALL Gaussians of the scene
+  # Band in units of the scene's median COLMAP spacing (the L1 statistic):
+  #   near      : dist_to_reference <= near_spacing_mult x spacing
+  #   far       : dist_to_reference >  far_spacing_mult  x spacing (= L1 tau)
+  #   ambiguous : in between
+  # (option B, chosen by the researcher 2026-11-24 before T5 ran anywhere)
+  band: spacing_multiples
+  near_spacing_mult: 1.0     # = T3 near-init radius
+  far_spacing_mult: 20.0     # = L1 unsupported multiplier
+  sample_n: 20               # from the ambiguous band, raw attributes, not classified
+  sample_seed: 0
+
+dilation_T6:
+  bootstrap_n: 1000
+  bootstrap_seed: 0
+  ci: 95
+
+coverage_T7:
+  few_views_threshold: 3
+  # angular diversity = 1 - |mean unit viewing direction| over seeing views
+  # (0 = all rays parallel). Defined 2026-11-24 before any multi-scene run.
+  angular_spread: one_minus_mean_resultant_length
+  # "many views, narrow baseline" count: seen by >= many_views but max
+  # parallax < narrow_parallax_deg (5 deg = low end of the 5-20 deg range in
+  # the literature review). Descriptive only, not scored. Set 2026-11-24
+  # before any T7 run.
+  many_views: 10
+  narrow_parallax_deg: 5.0
+
+# ---------------------------------------------------------------- human review
+human_review:
+  # Only the researcher classifies; the agent never does (AGENTS.md §2).
+  view_selection: max_angle  # max smallest pairwise angle between views
+  views_per_cluster: 3
+  min_frac_in_frame: 0.5
+  # Truck used 0.10 m (metric). Other scenes have no metric scale, so the
+  # cluster link distance = this multiple of the scene's median COLMAP
+  # spacing. Decided here, before any clusters are seen.
+  link_spacing_mult: 1.0
+  record: verbatim, with name and date; revisions kept with reasons
+
+# ---------------------------------------------------------------- change log
+changes:
+  - date: 2026-11-24
+    field: inputs.train_resolution
+    old: from_model_cameras_json
+    new: from_training_images (configs/train_image_sizes.yaml)
+    reason: >
+      3DGS writes cameras.json with the COLMAP camera size, not the size of the
+      images it trained on. For Mip-NeRF 360 the model trained on images_4 /
+      images_2 (cfg_args), so cameras.json says 4946 px for bicycle while the
+      optimiser saw 1237 px. Truck is unaffected (COLMAP size == image size).
+      Found when generating configs, before any feature of a new scene was
+      computed; a fidelity fix, not result-driven.
+  - date: 2026-11-24
+    field: needles_T5 band
+    old: band_lo_pct 35 / band_hi_pct 65 (percentiles of dist_to_reference within the top-2% subset)
+    new: spacing multiples, near <= 1.0 x spacing, far > 20.0 x spacing
+    reason: >
+      Percentiles taken within the subset fix the ambiguous fraction at ~30%
+      by construction, so it cannot measure anything. Option B chosen by the
+      researcher ("Please implement as B") before T5 was run on any scene.
+      Both bounds reuse multipliers already in the protocol; no new number.

@@ -1,0 +1,12 @@
+2,546,116 Gaussians, 40 views
+seeing set identical to T1 view_count: yes
+SH rest coefficients read: 45
+wrote out/features/playroom_extra.parquet (2,546,116 rows)
+                     count   mean    std        min     25%     50%    75%    max
+mean_depth       2.545e+06  6.746  1.638      1.991   5.594   6.719  7.685  14.76
+max_parallax_deg 2.546e+06  65.86  32.16          0    41.1   58.07  91.38  177.8
+angular_spread   2.545e+06  0.117 0.0936 -1.262e-07 0.04573 0.08456 0.1721 0.7735
+contrib_F1       2.545e+06 0.3773 0.1784    0.04651   0.266  0.3192 0.4255      1
+contrib_F2       2.545e+06  1.316 0.2209          1   1.161   1.272  1.423  5.004
+sh_rest_ratio    2.546e+06  0.152 0.1509          0 0.08042  0.1167 0.1751  16.14
+unseen (NaN depth/spread/F1/F2): 820

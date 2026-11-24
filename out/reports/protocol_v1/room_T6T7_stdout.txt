@@ -1,0 +1,10 @@
+[room] T6 scope: seen 1,371,700 of 1,593,376; unsupported 119,026, supported 1,252,674
+  volume      shift +1.170 dec  95% CI [+1.161, +1.179]
+  scale_max   shift +0.220 dec  95% CI [+0.218, +0.222]
+  anisotropy  shift -0.207 dec  95% CI [-0.212, -0.203]
+  planarity   shift +0.108 raw  95% CI [+0.105, +0.110]
+
+[room] T7: N = 1,593,376; seen by < 3 of 40 views: 369,427 (23.19%); unseen 221,676
+  angular_spread (seen, N=1,371,700) p[10, 25, 50, 75, 90]: 0.0012, 0.0069, 0.1013, 0.3065, 0.4016
+  max_parallax_deg (seen by >= 2, N=1,282,637) p[10, 25, 50, 75, 90]: 14.22, 21.57, 102.76, 122.66, 132.61
+  seen by >= 10 views but max parallax < 5.0 deg: 0 (0.00% of N=761,201)
