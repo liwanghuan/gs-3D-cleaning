@@ -1,5 +1,5 @@
 # T8 — Cross-scene, protocol v1 — truck, bicycle, garden, room, playroom
-Run: 2026-11-24 · config: `configs/protocol_v1.yaml` (+ generated `configs/T1_<scene>.yaml`) · commit: see RESULTS.md entry (working tree on e597f88 at run time)
+Run: 2026-11-24 · config: `configs/protocol_v1.yaml` (+ generated `configs/T1_<scene>.yaml`) · commit: 52cab86
 
 ## What I did
 Ran one frozen pipeline (`src/run_scene.sh`: T1 features → pre-registered extra signals → T3/T4 evaluation → T6/T7) unchanged on five scenes, and scored 8 signals against the COLMAP label L1 (`unsupported` = distance to nearest sparse point > 20 × median sparse spacing). The protocol was signed off by the researcher before any new scene was downloaded. AUC is the tie-aware Mann–Whitney statistic over Gaussians seen by ≥ 1 of 40 sampled training views, pooled and as an N-weighted mean within 10 equal-count strata of mean camera depth (a stratum counts only with ≥ 1,000 per class). The cross-scene verdict uses the pre-registered rule: a feature is *stable* only if its within-depth AUC is on the same side of 0.5 on all five scenes. T5 (needles) uses option B, chosen by the researcher before it ran: near ≤ 1 × median COLMAP spacing, far > 20 × (= L1 τ), ambiguous in between.
