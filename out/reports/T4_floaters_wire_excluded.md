@@ -1,5 +1,5 @@
 # T4 Floaters, wire excluded — truck (L2 label, corrected)
-Run: 2026-11-24 · config: `configs/T4_floaters_wire_excluded.yaml` · commit: uncommitted
+Run: 2026-11-24 · config: `configs/T4_floaters_wire_excluded.yaml` · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** with the 2,103 human-confirmed wire Gaussians excluded, `isolation` becomes the strongest feature (AUC 0.778 pooled, 0.835 within depth, above 0.5 in all 5 depth strata). `view_frac` drops from 0.861 to 0.760 pooled, because the wire had inflated it, and `contrib_ratio` stays inverted (0.221 / 0.295).
 

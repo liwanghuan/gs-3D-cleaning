@@ -1,5 +1,5 @@
 # L2 laser-scan label — truck
-Run: 2026-11-10 · config: `configs/L2_scan_label.yaml` (alignment from `configs/align_truck.yaml`) · commit: uncommitted
+Run: 2026-11-10 · config: `configs/L2_scan_label.yaml` (alignment from `configs/align_truck.yaml`) · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** inside the official crop, 5,124 of 516,630 Gaussians (0.99 %) are more than 0.289 m from the laser scan. The old COLMAP label (L1) catches only 35.23 % of them, but 97.57 % of what L1 flags is also far from the scan.
 

@@ -1,5 +1,5 @@
 # Near-field checks — truck
-Run: 2026-11-10 · config: `configs/nearfield_checks.yaml` (features from `configs/T1_truck.yaml`, alignment from `configs/align_truck.yaml`) · commit: uncommitted
+Run: 2026-11-10 · config: `configs/nearfield_checks.yaml` (features from `configs/T1_truck.yaml`, alignment from `configs/align_truck.yaml`) · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** the laser scan's official crop covers the truck and nothing else. That is 20.33 % of Gaussians, nearly all of depth deciles 1–2, part of decile 3, and none of deciles 4–10; none of the 219 training cameras is inside it. Within the crop, the current COLMAP label agrees with "far from the scan" at 97.37 % precision but only 33.42 % recall, which is the first direct measurement of its high-precision / low-recall behaviour.
 

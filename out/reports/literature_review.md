@@ -1,5 +1,5 @@
 # Literature review — is "the label is mostly a distance detector" known?
-Run: 2026-11-10 · method: 17 web searches and 4 full-page reads · commit: uncommitted
+Run: 2026-11-10 · method: 17 web searches and 4 full-page reads · commit: 677b576 (code that produced these numbers)
 
 ## Question
 The depth-stratified analysis (`out/reports/depth_strata.md`) found that, in truck, the `unsupported` label is driven mostly by camera distance: 0.13 % unsupported in the nearest depth decile against 93.9 % in the farthest. View-based features, `contrib_ratio` in particular, share that dependence. Does existing work report this, or something close to it?

@@ -1,5 +1,5 @@
 # Human inspection: overhead layer from T4 — truck
-Run: 2026-11-24 · config: `configs/inspect_layer.yaml` · commit: uncommitted
+Run: 2026-11-24 · config: `configs/inspect_layer.yaml` · commit: 677b576 (code that produced these numbers)
 
 ## What I did
 I projected the T4 overhead layer into the training images so a human can judge what it is. The layer is defined as L2-positive Gaussians that are seen and have scan z > −6.0 m; this cut was chosen **post hoc**, from the T4 height histogram, to select views for inspection only. No metric is computed from it, and nothing is classified (AGENTS.md §2).

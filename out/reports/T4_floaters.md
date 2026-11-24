@@ -1,5 +1,5 @@
 # T4 Floaters — truck (L2 laser-scan label)
-Run: 2026-11-24 · config: `configs/T4_floaters.yaml` (label `configs/L2_scan_label.yaml`, features `configs/T1_truck.yaml`, 40 views) · commit: uncommitted
+Run: 2026-11-24 · config: `configs/T4_floaters.yaml` (label `configs/L2_scan_label.yaml`, features `configs/T1_truck.yaml`, 40 views) · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** against the independent laser-scan label, `contrib_ratio` is still inverted (AUC 0.142 pooled, 0.291 within depth). So the inversion is a property of the feature, not of the COLMAP label. But most of L2's positives sit in one thin layer about 1.5 m above the truck, including a straight line about 2.8 m long that the scan does not cover. Until a human looks at it, the other AUCs cannot be read as floater detection.
 

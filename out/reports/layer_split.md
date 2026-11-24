@@ -1,5 +1,5 @@
 # Overhead layer split and photo-consistency — truck
-Run: 2026-11-24 · config: `configs/layer_split.yaml` (layer from `configs/inspect_layer.yaml`) · commit: uncommitted
+Run: 2026-11-24 · config: `configs/layer_split.yaml` (layer from `configs/inspect_layer.yaml`) · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** a fixed RANSAC line rule puts 2,103 of the 3,941 layer Gaussians (53.4 %) on one nearly horizontal line 2.82 m long, which is the part the researcher judged to be a real electric wire. Photo-consistency without an occlusion test does **not** separate anything: the truck-surface reference is itself colour-inconsistent across views.
 

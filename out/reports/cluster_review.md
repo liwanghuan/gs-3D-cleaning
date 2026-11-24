@@ -1,5 +1,5 @@
 # Cluster-level human review of the overhead layer — truck
-Run: 2026-11-24 · configs: `configs/cluster_review.yaml` (round 1), `configs/cluster_review_wide.yaml` (round 2) · commit: uncommitted
+Run: 2026-11-24 · configs: `configs/cluster_review.yaml` (round 1), `configs/cluster_review_wide.yaml` (round 2) · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** of the 1,495 non-wire layer Gaussians shown (the 12 largest clusters), the researcher judged 1,247 to be floaters, 185 a second wire and 63 an object. But **every cluster judged "object" on adjacent frames that could be re-checked from views 34–65° apart (4 of 4) was re-judged a floater.** Human inspection on near-identical views is unreliable, and only 568 of the 1,495 judgements rest on wide-angle evidence.
 

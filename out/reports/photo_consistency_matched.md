@@ -1,5 +1,5 @@
 # Matched photo-consistency — truck
-Run: 2026-11-24 · config: `configs/photo_consistency_matched.yaml` · commit: uncommitted
+Run: 2026-11-24 · config: `configs/photo_consistency_matched.yaml` · commit: 677b576 (code that produced these numbers)
 
 **In one sentence:** matching the view set and keeping only camera-facing truck surface lowered the reference's colour variation from 0.196 to 0.116, but not to the pre-set 0.098. So the positive control **fails**, and by the rule fixed before running, this method is not used to judge floaters.
 
